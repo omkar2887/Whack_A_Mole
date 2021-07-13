@@ -101,7 +101,9 @@ def security_ques_val(security_ques, answer):
 def insert_data(name, uname, pass1, security_ques, answer):
     print("Inserting")
     mydatabase = Database()
-    print(mydatabase.Query_insert("INSERT INTO users (username, name, password, security_question, security_answer) VALUES (%s, %s, %s, %s, %s)", (uname, name, pass1, security_ques, answer)), "record inserted.")
+    print(mydatabase.Query_insert(
+        "INSERT INTO users (username, name, password, security_question, security_answer) VALUES (%s, %s, %s, %s, %s)",
+        (uname, name, pass1, security_ques, answer)), "record inserted.")
 
 
 class Signup(QDialog):
@@ -208,17 +210,12 @@ class Login(QDialog):
         self.close()
 
 
-def forgot_pass_val(username, ans):
+def forgot_pass_val(username):
     print("Checking")
     mydatabase = Database()
     result = mydatabase.Query_fetchone("SELECT username FROM users WHERE username = %s", (str(username),))
     if not (result is None):
-        result = mydatabase.Query_fetchone("SELECT password, security_answer FROM users WHERE username = %s", (str(username),))
-        if str(result[1]) == str(ans):
-            return str(result[0])
-        else:
-            print("Wrong answer")
-            return False
+        return True
     else:
         return False
 
@@ -226,15 +223,15 @@ def forgot_pass_val(username, ans):
 class Forgotpassword(QDialog):
     def __init__(self):
         super().__init__()
-        loadUi(r"C:\Whack_A_Mole\ui_files\Forgotpassword.ui", self)
+        loadUi(r"C:\Whack_A_Mole\ui_files\Forgotpassword_sec_check.ui", self)
         self.setFixedSize(800, 800)
         self.setWindowTitle("Forgot Password page")
-        self.f_gotologin.setStyleSheet(
+        self.f_goback.setStyleSheet(
             "QPushButton{font: 16pt \"Arial Rounded MT Bold\";\npadding:15px;\nbackground-color:green;\ncolor:white;\nborder-radius:20px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
-        self.f_gotologin.clicked.connect(self.gotologin)
-        self.f_getpass.setStyleSheet(
+        self.f_goback.clicked.connect(self.gotologin)
+        self.f_continue.setStyleSheet(
             "QPushButton{font: 16pt \"Arial Rounded MT Bold\";\npadding:15px;\nbackground-color:green;\ncolor:white;\nborder-radius:20px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
-        self.f_getpass.clicked.connect(self.getpassword)
+        self.f_continue.clicked.connect(self.continueto_sec_check)
         # self.f_goto_otp.clicked.connect(self.goto_otpframe)
 
     def gotologin(self):
@@ -242,18 +239,67 @@ class Forgotpassword(QDialog):
         self.log.show()
         self.close()
 
-    def getpassword(self):
+    def continueto_sec_check(self):
         username = str(self.f_username.text())
-        ans = str(self.f_answer.text())
-        if username != "" and ans != "":
-            result = forgot_pass_val(username, ans)
-            if not result:
-                print("Invalid answer")
-                self.w = Wrong_Response()
+        if username != "":
+            result = forgot_pass_val(username)
+            if result:
+                mydatabase = Database()
+                security_question = mydatabase.Query_fetchone(
+                    "SELECT security_question, security_answer, password FROM users WHERE username = %s",
+                    (str(username),))
+                self.w = Forgotpassword_sec_check(security_question[0], security_question[1], security_question[2])
                 self.w.show()
                 self.close()
             else:
-                self.w = Response_Pass(str(result))
+                self.f_responseerror.setText("Username does not exists")
+        else:
+            self.f_continue.setEnabled(False)
+            timer = Timer()
+            timer.setTimeout(self.enableme, 0.2)
+
+    def enableme(self):
+        self.f_continue.setEnabled(True)
+
+    # def goto_otpframe(self):
+    #     from OTP_frame import OTP_frame
+    #     self.o_window=OTP_frame()
+    #     self.o_window.show()
+    #     self.close()
+
+
+class Forgotpassword_sec_check(QDialog):
+    def __init__(self, s_q, s_a, password):
+        super().__init__()
+        loadUi(r"C:\Whack_A_Mole\ui_files\Forgotpassword.ui", self)
+        self.security_question = s_q
+        self.security_answer = s_a
+        self.password = password
+        self.label_3.setText(str(self.security_question))
+        self.setFixedSize(800, 800)
+        self.setWindowTitle("Forgot Password page")
+        self.f_getpass.setStyleSheet(
+            "QPushButton{font: 16pt \"Arial Rounded MT Bold\";\npadding:15px;\nbackground-color:green;\ncolor:white;\nborder-radius:20px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
+        self.f_getpass.clicked.connect(self.getpassword)
+        self.f_gotologin.clicked.connect(self.gotologin)
+        self.f_gotologin.setStyleSheet(
+            "QPushButton{font: 16pt \"Arial Rounded MT Bold\";\npadding:15px;\nbackground-color:green;\ncolor:white;\nborder-radius:20px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
+
+
+    def gotologin(self):
+        self.w = Login()
+        self.w.show()
+        self.close()
+
+    def getpassword(self):
+        security_ans_cu = str(self.f_answer.text())
+        if security_ans_cu != "":
+            if security_ans_cu == self.security_answer:
+                self.w = Response_Pass(self.password)
+                self.w.show()
+                self.close()
+            else:
+                self.w = Wrong_Response()
                 self.w.show()
                 self.close()
         else:
@@ -263,12 +309,6 @@ class Forgotpassword(QDialog):
 
     def enableme(self):
         self.f_getpass.setEnabled(True)
-
-    # def goto_otpframe(self):
-    #     from OTP_frame import OTP_frame
-    #     self.o_window=OTP_frame()
-    #     self.o_window.show()
-    #     self.close()
 
 
 class Response_Pass(QDialog):
