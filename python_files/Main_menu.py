@@ -30,6 +30,7 @@ class Main_menu(QDialog):
         result = mydatabase.Query_fetchone("SELECT name FROM users WHERE username = %s", (str(self.username1),))
         print(str(result[0]))
         self.f_response.setText(f"Hii, {str(result[0])}")
+        self.f_leaderboard.clicked.connect(self.goto_leaderboard)
 
     def level(self):
         from level_and_skin import level_skin
@@ -42,6 +43,11 @@ class Main_menu(QDialog):
         from settings import Settings_frame
         self.set_window = Settings_frame(self.username1)
         self.set_window.show()
+        self.close()
+
+    def goto_leaderboard(self):
+        self.w = Leaderboard(self.username1)
+        self.w.show()
         self.close()
 
     def Quit(self):
@@ -61,4 +67,37 @@ class popwindow(QDialog):
         sys.exit()
 
     def cancel(self):
+        self.close()
+
+class Leaderboard(QDialog):
+    def __init__(self, username):
+        super().__init__()
+        loadUi(r"C:\Whack_A_Mole\ui_files\leaderboard.ui", self)
+        self.username1 = username
+        self.setWindowTitle("Leaderboard")
+        self.setFixedSize(800, 800)
+        self.tableWidget.setColumnWidth(0,240)
+        self.tableWidget.setColumnWidth(1,100)
+        self.tableWidget.setColumnWidth(2,200)
+        self.tableWidget.setColumnWidth(3,200)
+        #######DATABASE#######
+        # mydatabase = Database()
+        # self.result = mydatabase.Query_fetchall("SELECT * FROM highscores ORDER BY score DESC", (str(self.username1),))
+        # self.load_database()
+        #######DATABASE#######
+        self.f_back.clicked.connect(self.goto_mainmenu)
+        
+    """def load_database(self):
+        row = 0
+        self.tableWidget.setRowCount(len(self.result))
+        for data in result:
+            self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(data[0]))
+            self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(data[1]))
+            self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(data[2]))
+            self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(data[3]))
+            row+=1"""
+
+    def goto_mainmenu(self):
+        self.w = Main_menu(self.username1)
+        self.w.show()
         self.close()
