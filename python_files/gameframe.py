@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import QDialog, QApplication
 from PyQt5.QtCore import *
 from PyQt5.uic import loadUi
 from PyQt5 import QtGui
-#test omkar j
+
 # Spacebar problem
 score = 0
 t = 15
