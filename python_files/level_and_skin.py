@@ -8,7 +8,7 @@ from gameframe import *
 
 level = str()
 skin = str()
-Totalscore = 221
+Totalscore = 0
 
 
 class level_skin(QDialog):
@@ -52,6 +52,16 @@ class level_skin(QDialog):
         self.h_level1.toggled.connect(self.h_lev_1)
         self.h_level2.toggled.connect(self.h_lev_2)
         self.h_level3.toggled.connect(self.h_lev_3)
+
+        self.skin_1.toggled.connect(self.s_1)
+        self.skin_2.toggled.connect(self.s_2)
+        self.skin_3.toggled.connect(self.s_3)
+        self.skin_4.toggled.connect(self.s_4)
+        self.skin_5.toggled.connect(self.s_5)
+        self.skin_6.toggled.connect(self.s_6)
+        self.skin_7.toggled.connect(self.s_7)
+        self.skin_8.toggled.connect(self.s_8)
+        self.skin_9.toggled.connect(self.s_9)
 
     def e_lev_2(self):
         if self.e_level2.isChecked() and Totalscore >= 50:
@@ -114,6 +124,70 @@ class level_skin(QDialog):
             global level
             level = 'h3'
         elif self.h_level3.isChecked() and Totalscore < 400:
+            self.l_pop = level_popup()
+            self.l_pop.show()
+
+    def s_2(self):
+        if self.skin_2.isChecked() and Totalscore >= 50:
+            global skin
+            skin = '2'
+        elif self.skin_2.isChecked() and Totalscore < 50:
+            self.l_pop = level_popup()
+            self.l_pop.show()
+
+    def s_3(self):
+        if self.skin_3.isChecked() and Totalscore >= 100:
+            global skin
+            skin = '3'
+        elif self.skin_3.isChecked() and Totalscore < 100:
+            self.l_pop = level_popup()
+            self.l_pop.show()
+
+    def s_4(self):
+        if self.skin_4.isChecked() and Totalscore >= 150:
+            global skin
+            skin = '4'
+        elif self.skin_4.isChecked() and Totalscore < 150:
+            self.l_pop = level_popup()
+            self.l_pop.show()
+
+    def s_5(self):
+        if self.skin_5.isChecked() and Totalscore >= 200:
+            global skin
+            skin = '5'
+        elif self.skin_5.isChecked() and Totalscore < 200:
+            self.l_pop = level_popup()
+            self.l_pop.show()
+
+    def s_6(self):
+        if self.skin_6.isChecked() and Totalscore >= 250:
+            global skin
+            skin = '6'
+        elif self.skin_6.isChecked() and Totalscore < 250:
+            self.l_pop = level_popup()
+            self.l_pop.show()
+
+    def s_7(self):
+        if self.skin_7.isChecked() and Totalscore >= 300:
+            global skin
+            skin = '7'
+        elif self.skin_7.isChecked() and Totalscore < 300:
+            self.l_pop = level_popup()
+            self.l_pop.show()
+
+    def s_8(self):
+        if self.skin_8.isChecked() and Totalscore >= 350:
+            global skin
+            skin = '8'
+        elif self.skin_8.isChecked() and Totalscore < 350:
+            self.l_pop = level_popup()
+            self.l_pop.show()
+
+    def s_9(self):
+        if self.skin_9.isChecked() and Totalscore >= 400:
+            global skin
+            skin = '9'
+        elif self.skin_9.isChecked() and Totalscore < 400:
             self.l_pop = level_popup()
             self.l_pop.show()
 
