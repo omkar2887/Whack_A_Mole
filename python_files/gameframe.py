@@ -11,6 +11,17 @@ countdown_time = 3
 start = False
 mouseflag = cursorflag = 0
 
+levels={
+    'e1':1050,
+    'e2':950,
+    'e3':850,
+    'm1':750,
+    'm2':650,
+    'm3':550,
+    'h1':450,
+    'h2':350,
+    'h3':250,
+}
 
 def reset():
     global score, t, countdown_time, start, mouseflag, cursorflag
@@ -23,7 +34,6 @@ def reset():
 
 class GameFrame(QDialog):
     def __init__(self):
-
         global start, countdown_time
         super().__init__()
         loadUi(r"C:\Whack_A_Mole\ui_files\gameframe.ui", self)
@@ -47,8 +57,6 @@ class GameFrame(QDialog):
         self.countdown_timer.timeout.connect(self.countdown)
         self.countdown_timer.start(1000)
         self.f_biglabel1.setText("GAME BEGINS IN...")
-        from level_and_skin import level
-        print(level)
 
     def showTime(self):
         global start, t
@@ -74,7 +82,8 @@ class GameFrame(QDialog):
         global score
         score += 1
         self.f_score.setText(str(score))
-        cursor_pix = QtGui.QPixmap(r"C:\Whack_A_Mole\Mallet images\1r.png")
+        from level_and_skin import skin
+        cursor_pix = QtGui.QPixmap(f"C:\\Whack_A_Mole\\Mallet images\\"+ skin +"r.png")
         cursor_scaled_pix = cursor_pix.scaled(QSize(60, 60))
         current_cursor = QtGui.QCursor(cursor_scaled_pix, 8, 20)
         self.setCursor(current_cursor)
@@ -86,7 +95,8 @@ class GameFrame(QDialog):
     def change_cursor(self):
         global cursorflag
         if cursorflag == 0:
-            cursor_pix = QtGui.QPixmap(r"C:\Whack_A_Mole\Mallet images\1.png")
+            from level_and_skin import skin
+            cursor_pix = QtGui.QPixmap(f"C:\\Whack_A_Mole\\Mallet images\\"+ skin +".png")
             cursor_scaled_pix = cursor_pix.scaled(QSize(60, 60))
             current_cursor = QtGui.QCursor(cursor_scaled_pix, 8, 20)
             self.setCursor(current_cursor)
@@ -111,7 +121,8 @@ class GameFrame(QDialog):
             self.f_timer.setVisible(True)
             self.f_mole.setVisible(True)
             self.f_mole.setEnabled(True)
-            cursor_pix = QtGui.QPixmap(r"C:\Whack_A_Mole\Mallet images\1.png")
+            from level_and_skin import skin
+            cursor_pix = QtGui.QPixmap(f"C:\\Whack_A_Mole\\Mallet images\\"+ skin +".png")
             cursor_scaled_pix = cursor_pix.scaled(QSize(60, 60))
             current_cursor = QtGui.QCursor(cursor_scaled_pix, 8, 20)
             self.setCursor(current_cursor)
@@ -121,18 +132,21 @@ class GameFrame(QDialog):
             self.timer.start(1000)
             self.location_timer = QTimer(self)
             self.location_timer.timeout.connect(self.change_location)
-            self.location_timer.start(1000)
+            from level_and_skin import level
+            self.location_timer.start(levels[level])
 
     def mousePressEvent(self, click):
         if click.button() == Qt.LeftButton and mouseflag == 1:
-            cursor_pix = QtGui.QPixmap(r"C:\Whack_A_Mole\Mallet images\1r.png")
+            from level_and_skin import skin
+            cursor_pix = QtGui.QPixmap(f"C:\\Whack_A_Mole\\Mallet images\\"+ skin +"r.png")
             cursor_scaled_pix = cursor_pix.scaled(QSize(60, 60))
             current_cursor = QtGui.QCursor(cursor_scaled_pix, 8, 20)
             self.setCursor(current_cursor)
 
     def mouseReleaseEvent(self, click):
         if click.button() == Qt.LeftButton and mouseflag == 1:
-            cursor_pix = QtGui.QPixmap(r"C:\Whack_A_Mole\Mallet images\1.png")
+            from level_and_skin import skin
+            cursor_pix = QtGui.QPixmap(f"C:\\Whack_A_Mole\\Mallet images\\"+ skin +".png")
             cursor_scaled_pix = cursor_pix.scaled(QSize(60, 60))
             current_cursor = QtGui.QCursor(cursor_scaled_pix, 8, 20)
             self.setCursor(current_cursor)
