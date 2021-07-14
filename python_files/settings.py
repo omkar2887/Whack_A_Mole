@@ -18,10 +18,6 @@ class Settings_frame(QDialog):
             "QPushButton{font: 16pt \"Arial Rounded MT Bold\";\npadding:15px;\nbackground-color:green;\ncolor:white;\nborder-radius:20px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
         self.f_profile.clicked.connect(self.gotoProfile)
 
-        self.f_theme.setStyleSheet(
-            "QPushButton{font: 16pt \"Arial Rounded MT Bold\";\npadding:15px;\nbackground-color:green;\ncolor:white;\nborder-radius:20px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
-        # self.f_theme.clicked.connect(self.gotoTheme)
-
         self.f_resetacc.setStyleSheet(
             "QPushButton{font: 16pt \"Arial Rounded MT Bold\";\npadding:15px;\nbackground-color:green;\ncolor:white;\nborder-radius:20px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
         self.f_resetacc.clicked.connect(self.reset_account)

@@ -34,13 +34,13 @@ class Result(QDialog):
             "QPushButton{font: 16pt \"Arial Rounded MT Bold\";\npadding:15px;\nbackground-color:green;\ncolor:white;\nborder-radius:20px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
         self.f_quit.clicked.connect(self.goto_quit)
 
-        from gameframe import score
-        self.f_score.setText(str(score))
+        # from gameframe import score
+        # self.f_score.setText(str(score))
 
-        if score >= 10:
-            self.result_label.setText("Well done")
-        else:
-            self.result_label.setText("Can do better")
+        # if score >= 10:
+        #     self.result_label.setText("Well done")
+        # else:
+        #     self.result_label.setText("Can do better")
 
     def goto_playagain(self):
         from gameframe import GameFrame
