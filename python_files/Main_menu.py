@@ -2,7 +2,7 @@ import sys
 from PyQt5.QtWidgets import QDialog, QApplication
 from PyQt5.uic import loadUi
 from PyQt5.QtCore import *
-from PyQt5 import QtGui
+from PyQt5 import QtGui, QtWidgets
 from PyQt5.QtCore import Qt
 # from level_and_skin import *
 from DBhelper import Database
@@ -34,7 +34,7 @@ class Main_menu(QDialog):
 
     def level(self):
         from level_and_skin import level_skin
-        self.xyz=level_skin(str(self.username1))
+        self.xyz = level_skin(str(self.username1))
         self.xyz.show()
         self.close()
 
@@ -69,6 +69,7 @@ class popwindow(QDialog):
     def cancel(self):
         self.close()
 
+
 class Leaderboard(QDialog):
     def __init__(self, username):
         super().__init__()
@@ -76,26 +77,26 @@ class Leaderboard(QDialog):
         self.username1 = username
         self.setWindowTitle("Leaderboard")
         self.setFixedSize(800, 800)
-        self.tableWidget.setColumnWidth(0,240)
-        self.tableWidget.setColumnWidth(1,100)
-        self.tableWidget.setColumnWidth(2,200)
-        self.tableWidget.setColumnWidth(3,200)
+        self.tableWidget.setColumnWidth(0, 240)
+        self.tableWidget.setColumnWidth(1, 100)
+        self.tableWidget.setColumnWidth(2, 200)
+        self.tableWidget.setColumnWidth(3, 200)
         #######DATABASE#######
-        # mydatabase = Database()
-        # self.result = mydatabase.Query_fetchall("SELECT * FROM highscores ORDER BY score DESC", (str(self.username1),))
-        # self.load_database()
+        mydatabase = Database()
+        self.result = mydatabase.Query_fetchall_leaderboard("SELECT * FROM highscores ORDER BY score DESC")
+        self.load_database()
         #######DATABASE#######
         self.f_back.clicked.connect(self.goto_mainmenu)
-        
-    """def load_database(self):
+
+    def load_database(self):
         row = 0
         self.tableWidget.setRowCount(len(self.result))
-        for data in result:
-            self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(data[0]))
-            self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(data[1]))
-            self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(data[2]))
-            self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(data[3]))
-            row+=1"""
+        for data in self.result:
+            self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(str(data[0])))
+            self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(str(data[1])))
+            self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(str(data[2])))
+            self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(str(data[3])))
+            row += 1
 
     def goto_mainmenu(self):
         self.w = Main_menu(self.username1)
