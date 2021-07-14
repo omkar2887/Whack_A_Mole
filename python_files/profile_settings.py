@@ -120,8 +120,8 @@ class Profile_frame(QDialog):
     def enableme2(self):
         self.f_chpassword.setEnabled(True)
 
-    def gotoSettings(self, username):
+    def gotoSettings(self):
         from settings import Settings_frame
-        self.settings = Settings_frame(username)
+        self.settings = Settings_frame(self.username1)
         self.settings.show()
         self.close()
