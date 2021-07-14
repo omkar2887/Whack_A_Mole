@@ -26,20 +26,21 @@ levels={
 def reset():
     global score, t, countdown_time, start, mouseflag, cursorflag
     score = 0
-    t = 15
+    t = 30
     countdown_time = 3
     start = False
     mouseflag = cursorflag = 0
 
 
 class GameFrame(QDialog):
-    def __init__(self):
+    def __init__(self, username):
         global start, countdown_time
         super().__init__()
         loadUi(r"C:\Whack_A_Mole\ui_files\gameframe.ui", self)
         reset()
         self.setFixedSize(800, 800)
         self.setWindowTitle("Game page")
+        self.username1 = str(username)
         self.f_mole.clicked.connect(self.updatescore)
         self.f_score.setText(str(score))
         self.f_label.setVisible(False)
@@ -157,7 +158,7 @@ class GameFrame(QDialog):
         # self.cursor_timer.stop()
         self.timer.stop()
         self.location_timer.stop()
-        self.r_window = Result()
+        self.r_window = Result(self.username1)
         self.r_window.show()
         self.close()
 

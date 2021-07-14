@@ -88,6 +88,9 @@ color:white;
      <height>500</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: lightgreen;</string>
+   </property>
    <column>
     <property name="text">
      <string>Username</string>

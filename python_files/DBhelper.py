@@ -32,3 +32,7 @@ class Database:
         self.mydb.commit()
         print("Data changed")
 
+    def Query_fetchall_leaderboard(self, query):
+        self.mycursor.execute(query)
+        result = self.mycursor.fetchall()
+        return result
