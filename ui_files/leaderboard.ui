@@ -51,9 +51,9 @@ color:black;</string>
   <widget class="QLabel" name="labelHeading">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>150</x>
      <y>80</y>
-     <width>400</width>
+     <width>500</width>
      <height>70</height>
     </rect>
    </property>

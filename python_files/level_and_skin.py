@@ -24,7 +24,7 @@ class level_skin(QDialog):
         self.setWindowTitle("Level and skin page")
         self.f_play.setStyleSheet(
             "QPushButton{font: 15pt \"Arial Rounded MT Bold\";\npadding:5px;\nbackground-color:green;\ncolor:white;\nborder-radius:20px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
-        self.f_play.clicked.connect(self.abc)
+        self.f_play.clicked.connect(self.playgame)
         self.group1 = QButtonGroup()
         self.group2 = QButtonGroup()
         self.group1.addButton(self.e_level1)
@@ -212,7 +212,7 @@ class level_skin(QDialog):
     #         self.s_pop = skin_popup()
     #         self.s_pop.show()
 
-    def abc(self):
+    def playgame(self):
         # if self.e_level1.isChecked() and self.skin_1.isChecked():
         self.z = GameFrame()
         self.z.show()
