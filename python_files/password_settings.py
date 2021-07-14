@@ -102,15 +102,20 @@ class chpassword_frame(QDialog):
             else:
                 self.f_response.setText("Current and new password should not be same")
         else:
+            if current_password == "" and new_password == "":
+                self.f_response.setText("Please fill all the credentials")
+            elif current_password == "":
+                self.f_response.setText("Please enter Current username")
+            elif new_password == "":
+                self.f_response.setText("Please enter New username")
+            elif current_password != str(result[0]):
+                self.f_response.setText("Current password is wrong")
             print("text not filled")
             self.f_passchange.setEnabled(False)
             timer = Timer()
-            print("timer object created")
             timer.setTimeout(self.enableme1, 0.2)
-            print("timeout")
 
     def enableme1(self):
-        print("enabling me")
         self.f_passchange.setEnabled(True)
 
     def gotoprofile(self):

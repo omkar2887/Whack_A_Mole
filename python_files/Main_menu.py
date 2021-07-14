@@ -94,8 +94,8 @@ class Leaderboard(QDialog):
         for data in self.result:
             self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(str(data[0])))
             self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(str(data[1])))
-            self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(str(data[2])))
-            self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(str(data[3])))
+            self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(str(data[3])))
+            self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(str(data[2])))
             row += 1
 
     def goto_mainmenu(self):
