@@ -81,6 +81,8 @@ def pass_val(pass1, pass2):
             num_count += 1
         elif j == '@' or j == '#' or j == '$' or j == '^' or j == '&' or j == '*' or j == '%' or j == '~' or j == '`' or j == '!':
             sp_count += 1
+    if pass1 != pass2:
+        return "100"
     if not (pass_length < 8) and cap_count != 0 and num_count != 0 and sp_count != 0 and pass1 == pass2:
         print("True")
         return True
@@ -128,6 +130,19 @@ class Signup(QDialog):
         pass2 = self.f_pass2.text()
         security_ques = self.f_security_ques.currentText()
         answer = self.f_answer.text()
+        if uname == "":
+            self.f_responseerror.setText("")
+        elif not uname_val(uname):
+            self.f_responseerror.setStyleSheet("color:red;\nfont: 10pt 'Meiryo UI';")
+            self.f_responseerror.setText("Username already exists")
+        else:
+            self.f_responseerror.setStyleSheet("color:green;\nfont: 10pt 'Meiryo UI';")
+            self.f_responseerror.setText("Username available")
+        if pass_val(pass1, pass2) == "100":
+            self.f_responseerror2.setText("Both the passwords does not match")
+        else:
+            self.f_responseerror2.setText("")
+
         if name != "" and uname != "" and pass1 != "" and pass2 != "" and security_ques != "" and answer != "":
             if name_val(name) and uname_val(uname) and pass_val(pass1, pass2) and security_ques_val(security_ques,
                                                                                                     answer):
@@ -138,6 +153,7 @@ class Signup(QDialog):
             else:
                 print("Enter valid data")
         else:
+            self.f_responseerror1.setText("Please fill all the credentials")
             self.f_create_account.setEnabled(False)
             timer = Timer()
             timer.setTimeout(self.enableme, 0.2)
@@ -193,6 +209,12 @@ class Login(QDialog):
             else:
                 self.f_responseerror.setText("Username and password did not match")
         else:
+            if username == "" and password == "":
+                self.f_responseerror.setText("Please enter the credentials")
+            elif username == "":
+                self.f_responseerror.setText("Please enter the username")
+            elif password == "":
+                self.f_responseerror.setText("Please enter the password")
             self.f_login.setEnabled(False)
             timer = Timer()
             timer.setTimeout(self.enableme, 0.2)
@@ -257,6 +279,7 @@ class Forgotpassword(QDialog):
             else:
                 self.f_responseerror.setText("Username does not exists")
         else:
+            self.f_responseerror.setText("Please enter the username")
             self.f_continue.setEnabled(False)
             timer = Timer()
             timer.setTimeout(self.enableme, 0.2)
@@ -306,6 +329,7 @@ class Forgotpassword_sec_check(QDialog):
                 self.w.show()
                 self.close()
         else:
+            self.f_responseerror.setText("Please enter the Security answer")
             self.f_getpass.setEnabled(False)
             timer = Timer()
             timer.setTimeout(self.enableme, 0.2)

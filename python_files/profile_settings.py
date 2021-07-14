@@ -85,6 +85,12 @@ class Profile_frame(QDialog):
                 print("else result")
                 self.f_response.setText("Security Question and answer did not match")
         else:
+            if s_q == "" and s_a == "":
+                self.f_response.setText("Please fill all the credentials")
+            elif s_a == "":
+                self.f_response.setText("Please enter Security Answer")
+            elif s_q == "":
+                self.f_response.setText("Please enter Security Question")
             print("text not filled")
             self.f_chusername.setEnabled(False)
             timer = Timer()
@@ -112,6 +118,12 @@ class Profile_frame(QDialog):
                 print("else result")
                 self.f_response.setText("Security Question and answer did not match")
         else:
+            if s_q == "" and s_a == "":
+                self.f_response.setText("Please fill all the credentials")
+            elif s_a == "":
+                self.f_response.setText("Please enter Security Answer")
+            elif s_q == "":
+                self.f_response.setText("Please enter Security Question")
             print("text not filled")
             self.f_chpassword.setEnabled(False)
             timer = Timer()

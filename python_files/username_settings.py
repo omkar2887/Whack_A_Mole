@@ -88,15 +88,21 @@ class chusername_frame(QDialog):
             else:
                 self.f_response.setText("Current and new password should not be same")
         else:
+            if current_username == "" and new_username == "":
+                self.f_response.setText("Please fill all the credentials")
+            elif current_username == "":
+                self.f_response.setText("Please enter Current username")
+            elif new_username == "":
+                self.f_response.setText("Please enter New username")
+            elif current_username != str(self.username1):
+                self.f_response.setText("Current username is wrong")
+
             print("text not filled")
             self.f_userchange.setEnabled(False)
             timer = Timer()
-            print("timer object created")
             timer.setTimeout(self.enableme1, 0.2)
-            print("timeout")
 
     def enableme1(self):
-        print("enabling me")
         self.f_userchange.setEnabled(True)
 
     def gotoprofile(self):
