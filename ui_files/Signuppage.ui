@@ -351,49 +351,6 @@ font: 75 15pt &quot;Courier&quot;;</string>
     <string>Login</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="f_security_ques">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>560</y>
-     <width>355</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color:white;
-padding:0px 10px 0px 10px;
-border-radius:5px;
-border:3px solid lightgreen;
-</string>
-   </property>
-   <property name="editable">
-    <bool>false</bool>
-   </property>
-   <property name="placeholderText">
-    <string>select Questions</string>
-   </property>
-   <item>
-    <property name="text">
-     <string>What is your favourite color?</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Which is the name of your favourite book?</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>What is your favourite subject?</string>
-    </property>
-   </item>
-  </widget>
   <widget class="QLabel" name="label_R1">
    <property name="geometry">
     <rect>
@@ -521,6 +478,39 @@ color:white;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+  </widget>
+  <widget class="QComboBox" name="f_security_ques">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>560</y>
+     <width>355</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">padding:0px 10px 0px 10px;
+border-radius:5px;
+border:3px solid lightgreen;
+background-color:white;
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>Which is your favourite color?</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Which is your favourite book?</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Which is your favourite subject?</string>
+    </property>
+   </item>
   </widget>
  </widget>
  <resources/>
