@@ -75,8 +75,8 @@ def email_val(email):
         mydatabase = Database()
         result = mydatabase.Query_fetchall("SELECT email FROM users WHERE email = %s", (str(email), ))
         if result == []:
-            return False
-        return True
+            return True
+        return False
     else:
         return False
 
@@ -116,8 +116,8 @@ def insert_data(name, uname, email,pass1, security_ques, answer):
     print("Inserting")
     mydatabase = Database()
     print(mydatabase.Query_insert(
-        "INSERT INTO users (username, name, email, password, security_question, security_answer) VALUES (%s, %s, %s, %s, %s)",
-        (uname, name, pass1, security_ques, answer)), "record inserted.")
+        "INSERT INTO users (username, name, email, password, security_question, security_answer) VALUES (%s, %s, %s, %s, %s, %s)",
+        (uname, name, email, pass1, security_ques, answer)), "record inserted.")
     print(mydatabase.Query_insert(
         "INSERT INTO levels_and_skins (username, e1, e2, e3, m1,m2,m3,h1,h2,h3,s1,s2,s3,s4,s5,s6,s7,s8,s9) VALUES (%s, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)",
         (uname,)), "record inserted.")
@@ -138,7 +138,7 @@ class Signup(QDialog):
     def create_acc(self):
         name = self.f_name.text()
         uname = self.f_uname.text()
-        email = self.F_email.text()
+        email = self.f_email.text()
         pass1 = self.f_pass1.text()
         pass2 = self.f_pass2.text()
         security_ques = self.f_security_ques.currentText()
