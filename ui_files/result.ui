@@ -20,7 +20,7 @@
    <property name="geometry">
     <rect>
      <x>275</x>
-     <y>190</y>
+     <y>120</y>
      <width>250</width>
      <height>60</height>
     </rect>
@@ -32,12 +32,15 @@ color:white;</string>
    <property name="text">
     <string>Your Score :</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="f_score">
    <property name="geometry">
     <rect>
      <x>300</x>
-     <y>270</y>
+     <y>200</y>
      <width>200</width>
      <height>60</height>
     </rect>
@@ -56,9 +59,9 @@ color:white;</string>
   <widget class="QPushButton" name="f_playagain">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>420</y>
-     <width>200</width>
+     <x>68</x>
+     <y>400</y>
+     <width>175</width>
      <height>60</height>
     </rect>
    </property>
@@ -77,9 +80,9 @@ color:white;
   <widget class="QPushButton" name="f_next">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>540</y>
-     <width>200</width>
+     <x>312</x>
+     <y>400</y>
+     <width>175</width>
      <height>60</height>
     </rect>
    </property>
@@ -98,9 +101,9 @@ color:white;
   <widget class="QPushButton" name="f_quit">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>650</y>
-     <width>200</width>
+     <x>320</x>
+     <y>560</y>
+     <width>175</width>
      <height>60</height>
     </rect>
    </property>
@@ -116,44 +119,25 @@ color:white;
     <string>Quit</string>
    </property>
   </widget>
-  <widget class="QLabel" name="result_label">
+  <widget class="QPushButton" name="f_mainmenu">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>80</y>
-     <width>350</width>
+     <x>560</x>
+     <y>400</y>
+     <width>175</width>
      <height>60</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 25pt &quot;Georgia&quot;;
-color:white;</string>
+    <string notr="true">font: 16pt &quot;Arial Rounded MT Bold&quot;;
+padding:15px;
+background-color:green;
+color:white;
+
+</string>
    </property>
    <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="result_name">
-   <property name="geometry">
-    <rect>
-     <x>420</x>
-     <y>80</y>
-     <width>350</width>
-     <height>60</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: 25pt &quot;Georgia&quot;;
-color:white;</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <string>Main Menu</string>
    </property>
   </widget>
  </widget>

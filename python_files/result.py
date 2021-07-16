@@ -29,7 +29,11 @@ class Result(QDialog):
 
         self.f_next.setStyleSheet(
             "QPushButton{font: 16pt \"Arial Rounded MT Bold\";\npadding:15px;\nbackground-color:green;\ncolor:white;\nborder-radius:20px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
-        self.f_next.clicked.connect(self.goto_leaderboard)
+        self.f_next.clicked.connect(self.goto_level_skin)
+
+        self.f_mainmenu.setStyleSheet(
+            "QPushButton{font: 16pt \"Arial Rounded MT Bold\";\npadding:15px;\nbackground-color:green;\ncolor:white;\nborder-radius:20px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
+        self.f_mainmenu.clicked.connect(self.goto_mainmenu)
 
         self.f_quit.setStyleSheet(
             "QPushButton{font: 16pt \"Arial Rounded MT Bold\";\npadding:15px;\nbackground-color:green;\ncolor:white;\nborder-radius:20px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
@@ -54,8 +58,17 @@ class Result(QDialog):
         self.z.show()
         self.close()
 
-    def goto_leaderboard(self):
-        pass
+    def goto_level_skin(self):
+        from level_and_skin import level_skin
+        self.level_window=level_skin(self.username1)
+        self.level_window.show()
+        self.close()
+
+    def goto_mainmenu(self):
+        from Main_menu import Main_menu
+        self.w=Main_menu(self.username1)
+        self.w.show()
+        self.close()
 
     def goto_quit(self):
         from Main_menu import popwindow

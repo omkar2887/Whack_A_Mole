@@ -68,6 +68,48 @@ class level_skin(QDialog):
         self.skin_8.toggled.connect(self.s_8)
         self.skin_9.toggled.connect(self.s_9)
 
+        if self.result[1]==1 and self.result[10]==1:
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap("../Whack_A_Mole/Images and icon/unlocked.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            self.e_level2.setIcon(icon)
+            self.s2_label.setText("Unlocked")
+        if self.result[2]==1 and self.result[11]==1:
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap("../Whack_A_Mole/Images and icon/unlocked.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            self.e_level3.setIcon(icon)
+            self.s3_label.setText("Unlocked")
+        if self.result[3]==1 and self.result[12]==1:
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap("../Whack_A_Mole/Images and icon/unlocked.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            self.m_level1.setIcon(icon)
+            self.s4_label.setText("Unlocked")
+        if self.result[4]==1 and self.result[13]==1:
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap("../Whack_A_Mole/Images and icon/unlocked.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            self.m_level2.setIcon(icon)
+            self.s5_label.setText("Unlocked")
+        if self.result[5]==1 and self.result[14]==1:
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap("../Whack_A_Mole/Images and icon/unlocked.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            self.m_level3.setIcon(icon)
+            self.s6_label.setText("Unlocked")
+        if self.result[6]==1 and self.result[15]==1:
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap("../Whack_A_Mole/Images and icon/unlocked.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            self.h_level1.setIcon(icon)
+            self.s7_label.setText("Unlocked")
+        if self.result[7]==1 and self.result[16]==1:
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap("../Whack_A_Mole/Images and icon/unlocked.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            self.h_level2.setIcon(icon)
+            self.s8_label.setText("Unlocked")
+        if self.result[8]==1 and self.result[167]==1:
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap("../Whack_A_Mole/Images and icon/unlocked.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            self.h_level3.setIcon(icon)
+            self.s9_label.setText("Unlocked")
+        
+
     def e_lev_1(self):
         global level
         level = 'e1'
@@ -147,7 +189,7 @@ class level_skin(QDialog):
         elif self.skin_2.isChecked() and self.result[10] == 0:
             self.l_pop = level_popup()
             self.l_pop.show()
-
+        
     def s_3(self):
         if self.skin_3.isChecked() and self.result[11] == 1:
             global skin

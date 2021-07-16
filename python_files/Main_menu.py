@@ -61,7 +61,11 @@ class popwindow(QDialog):
         loadUi(r"C:\Whack_A_Mole\ui_files\popupwindow.ui", self)
         self.setWindowTitle("Alert")
         self.f_popup_quit.clicked.connect(self.quit)
+        self.f_popup_quit.setStyleSheet(
+            "QPushButton{font: 12pt \"Arial Rounded MT Bold\";\npadding:5px;\nbackground-color:green;\ncolor:white;\nborder-radius:10px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
         self.f_popup_cancel.clicked.connect(self.cancel)
+        self.f_popup_cancel.setStyleSheet(
+            "QPushButton{font: 12pt \"Arial Rounded MT Bold\";\npadding:5px;\nbackground-color:green;\ncolor:white;\nborder-radius:10px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
 
     def quit(self):
         sys.exit()

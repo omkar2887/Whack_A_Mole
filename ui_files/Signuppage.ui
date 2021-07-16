@@ -20,7 +20,7 @@
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>120</y>
+     <y>100</y>
      <width>211</width>
      <height>51</height>
     </rect>
@@ -46,7 +46,7 @@ color:white;</string>
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>520</y>
+     <y>530</y>
      <width>271</width>
      <height>41</height>
     </rect>
@@ -63,7 +63,7 @@ color:white;</string>
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>410</y>
+     <y>420</y>
      <width>291</width>
      <height>71</height>
     </rect>
@@ -80,7 +80,7 @@ color:white;</string>
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>220</y>
+     <y>200</y>
      <width>251</width>
      <height>51</height>
     </rect>
@@ -97,7 +97,7 @@ color:white;</string>
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>320</y>
+     <y>300</y>
      <width>241</width>
      <height>51</height>
     </rect>
@@ -145,7 +145,7 @@ color:white;
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>160</y>
+     <y>140</y>
      <width>400</width>
      <height>41</height>
     </rect>
@@ -169,7 +169,7 @@ background-color:white;</string>
    <property name="geometry">
     <rect>
      <x>410</x>
-     <y>560</y>
+     <y>570</y>
      <width>355</width>
      <height>41</height>
     </rect>
@@ -193,7 +193,7 @@ background-color:white;</string>
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>460</y>
+     <y>470</y>
      <width>400</width>
      <height>41</height>
     </rect>
@@ -220,7 +220,7 @@ background-color:white;</string>
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>360</y>
+     <y>340</y>
      <width>400</width>
      <height>41</height>
     </rect>
@@ -248,7 +248,7 @@ background-color:white;
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>260</y>
+     <y>240</y>
      <width>400</width>
      <height>41</height>
     </rect>
@@ -403,7 +403,7 @@ font: 75 15pt &quot;Courier&quot;;</string>
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>300</y>
+     <y>280</y>
      <width>500</width>
      <height>28</height>
     </rect>
@@ -443,7 +443,7 @@ color:red;</string>
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>500</y>
+     <y>510</y>
      <width>500</width>
      <height>28</height>
     </rect>
@@ -462,10 +462,10 @@ color:red;</string>
   <widget class="QLabel" name="f_responseerror2_2">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>400</y>
-     <width>660</width>
-     <height>28</height>
+     <x>150</x>
+     <y>380</y>
+     <width>491</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -478,12 +478,15 @@ color:white;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QComboBox" name="f_security_ques">
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>560</y>
+     <y>570</y>
      <width>355</width>
      <height>41</height>
     </rect>
@@ -493,7 +496,7 @@ color:white;</string>
 border-radius:5px;
 border:3px solid lightgreen;
 background-color:white;
-font: 12pt &quot;MS Shell Dlg 2&quot;;
+font: 10pt &quot;MS Shell Dlg 2&quot;;
 </string>
    </property>
    <item>
