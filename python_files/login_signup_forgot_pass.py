@@ -67,18 +67,20 @@ def name_val(name):
     else:
         return False
 
+
 def email_val(email):
     import re
 
     regex = '^[a-z0-9]+[\.]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
     if re.search(regex, email):
         mydatabase = Database()
-        result = mydatabase.Query_fetchall("SELECT email FROM users WHERE email = %s", (str(email), ))
+        result = mydatabase.Query_fetchall("SELECT email FROM users WHERE email = %s", (str(email),))
         if result == []:
             return True
         return False
     else:
         return False
+
 
 def pass_val(pass1, pass2):
     print(pass1, pass2)
@@ -112,7 +114,7 @@ def security_ques_val(security_ques, answer):
         return False
 
 
-def insert_data(name, uname, email,pass1, security_ques, answer):
+def insert_data(name, uname, email, pass1, security_ques, answer):
     print("Inserting")
     mydatabase = Database()
     print(mydatabase.Query_insert(
@@ -143,7 +145,7 @@ class Signup(QDialog):
         pass2 = self.f_pass2.text()
         security_ques = self.f_security_ques.currentText()
         answer = self.f_answer.text()
-        
+
         if uname == "":
             self.f_responseerror.setText("")
         elif not uname_val(uname):
@@ -152,7 +154,7 @@ class Signup(QDialog):
         else:
             self.f_responseerror.setStyleSheet("color:green;\nfont: 10pt 'Meiryo UI';")
             self.f_responseerror.setText("Username available")
-        
+
         if email == "":
             self.f_responseerror_2.setText("")
         elif not email_val(uname):
@@ -168,8 +170,10 @@ class Signup(QDialog):
             self.f_responseerror2.setText("")
 
         if name != "" and uname != "" and email != "" and pass1 != "" and pass2 != "" and security_ques != "" and answer != "":
-            if name_val(name) and uname_val(uname) and email_val(email) and pass_val(pass1, pass2) and security_ques_val(security_ques,
-                                                                                                    answer):
+            if name_val(name) and uname_val(uname) and email_val(email) and pass_val(pass1,
+                                                                                     pass2) and security_ques_val(
+                    security_ques,
+                    answer):
                 insert_data(name, uname, email, pass1, security_ques, answer)
                 self.main_menu = Main_menu(uname)
                 self.main_menu.show()
@@ -297,7 +301,8 @@ class Forgotpassword(QDialog):
                 security_question = mydatabase.Query_fetchone(
                     "SELECT security_question, security_answer, password FROM users WHERE username = %s",
                     (str(username),))
-                self.w = Forgotpassword_sec_check(security_question[0], security_question[1], security_question[2], username)
+                self.w = Forgotpassword_sec_check(security_question[0], security_question[1], security_question[2],
+                                                  username)
                 self.w.show()
                 self.close()
             else:
@@ -336,7 +341,6 @@ class Forgotpassword_sec_check(QDialog):
         self.f_gotologin.setStyleSheet(
             "QPushButton{font: 16pt \"Arial Rounded MT Bold\";\npadding:15px;\nbackground-color:green;\ncolor:white;\nborder-radius:20px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
 
-
     def gotologin(self):
         self.w = Login()
         self.w.show()
@@ -344,22 +348,22 @@ class Forgotpassword_sec_check(QDialog):
 
     def getpassword(self):
         security_ans_cu = str(self.f_answer.text())
-        email_id = str(self.f_email.text())
+        email_id = str(self.f_emailid.text())
         if security_ans_cu != "" and email_id != "":
             mydatabase = Database()
-            result = mydatabase.Query_fetchone("SELECT email FROM users WHERE username = %s",(str(self.username1),))
+            result = mydatabase.Query_fetchone("SELECT email FROM users WHERE username = %s", (str(self.username1),))
             if security_ans_cu == self.security_answer and email_id == result[0]:
                 try:
-                    self.send_email(email_id,self.username1)
-                    self.w = Response_Pass("Email sent to you successfully",200)
+                    self.send_email(email_id, self.username1)
+                    self.w = Response_Pass("Email sent to you successfully", 200)
                     self.w.show()
                     self.close()
                 except:
-                    self.w = Response_Pass("An Error occured while sending email",404)
+                    self.w = Response_Pass("An Error occurred while sending email", 404)
                     self.w.show()
                     self.close()
             else:
-                self.w = Response_Pass("Wrong username and email id did not match")
+                self.w = Response_Pass("Incorrect Username or Email ID", 403)
                 self.w.show()
                 self.close()
         else:
@@ -367,20 +371,22 @@ class Forgotpassword_sec_check(QDialog):
             self.f_getpass.setEnabled(False)
             timer = Timer()
             timer.setTimeout(self.enableme, 0.2)
-    def send_email(email_id,username):
+
+    def send_email(self, email_id, username):
         import smtplib
         from email.message import EmailMessage
-        mydatabase=Database()
-        password=mydatabase.Query_fetchone("SELECT password FROM users WHERE username = %s",(str(username),))[0]
-        msg=EmailMessage()
-        msg ['Subject']='Password Reset at Whack A Mole'
-        msg['From']= 'Whack A Mole Team'
-        msg['To']= email_id
+        mydatabase = Database()
+        password = mydatabase.Query_fetchone("SELECT password FROM users WHERE username = %s", (str(username),))[0]
+        print(password)
+        msg = EmailMessage()
+        msg['Subject'] = 'Password Reset at Whack A Mole'
+        msg['From'] = 'Whack A Mole Team'
+        msg['To'] = email_id
         # msg.set_content("Hello, your password is 'omkar@123'.")
-        msg.set_content("Hello, your password is"+ password+".")
+        msg.set_content("Hello, your password is " + "'" + password + "'" + ".")
 
-        server=smtplib.SMTP_SSL('smtp.gmail.com',465)
-        server.login("gamewhackamole@gmail.com","whackamole@123")
+        server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        server.login("gamewhackamole@gmail.com", "whackamole@123")
         server.send_message(msg)
         server.quit()
 
@@ -401,7 +407,9 @@ class Response_Pass(QDialog):
             self.f_ok.clicked.connect(self.gotologin)
         elif status == 400:
             self.f_ok.clicked.connect(self.gotoforgotpassword)
-        
+        else:
+            self.f_ok.clicked.connect(self.gotoforgotpassword)
+
     def gotologin(self):
         self.log = Login()
         self.log.show()
