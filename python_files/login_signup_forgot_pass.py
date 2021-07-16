@@ -70,7 +70,7 @@ def name_val(name):
 def email_val(email):
     ######################
 
-    
+
     ######################
     if True:
         mydatabase = Database()
@@ -113,11 +113,11 @@ def security_ques_val(security_ques, answer):
         return False
 
 
-def insert_data(name, uname, pass1, security_ques, answer):
+def insert_data(name, uname, email,pass1, security_ques, answer):
     print("Inserting")
     mydatabase = Database()
     print(mydatabase.Query_insert(
-        "INSERT INTO users (username, name, password, security_question, security_answer) VALUES (%s, %s, %s, %s, %s)",
+        "INSERT INTO users (username, name, email, password, security_question, security_answer) VALUES (%s, %s, %s, %s, %s)",
         (uname, name, pass1, security_ques, answer)), "record inserted.")
     print(mydatabase.Query_insert(
         "INSERT INTO levels_and_skins (username, e1, e2, e3, m1,m2,m3,h1,h2,h3,s1,s2,s3,s4,s5,s6,s7,s8,s9) VALUES (%s, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)",
@@ -139,18 +139,30 @@ class Signup(QDialog):
     def create_acc(self):
         name = self.f_name.text()
         uname = self.f_uname.text()
+        email = self.F_email.text()
         pass1 = self.f_pass1.text()
         pass2 = self.f_pass2.text()
         security_ques = self.f_security_ques.currentText()
         answer = self.f_answer.text()
+        
         if uname == "":
             self.f_responseerror.setText("")
         elif not uname_val(uname):
             self.f_responseerror.setStyleSheet("color:red;\nfont: 10pt 'Meiryo UI';")
-            self.f_responseerror.setText("Username already exists")
+            self.f_responseerror.setText("Username unavailable")
         else:
             self.f_responseerror.setStyleSheet("color:green;\nfont: 10pt 'Meiryo UI';")
             self.f_responseerror.setText("Username available")
+        
+        if email == "":
+            self.f_responseerror_2.setText("")
+        elif not email_val(uname):
+            self.f_responseerror_2.setStyleSheet("color:red;\nfont: 10pt 'Meiryo UI';")
+            self.f_responseerror_2.setText("Email unavailable")
+        else:
+            self.f_responseerror_2.setStyleSheet("color:green;\nfont: 10pt 'Meiryo UI';")
+            self.f_responseerror_2.setText("Email available")
+
         if pass_val(pass1, pass2) == "100":
             self.f_responseerror2.setText("Both the passwords does not match")
         else:
@@ -159,7 +171,7 @@ class Signup(QDialog):
         if name != "" and uname != "" and email != "" and pass1 != "" and pass2 != "" and security_ques != "" and answer != "":
             if name_val(name) and uname_val(uname) and email_val(email) and pass_val(pass1, pass2) and security_ques_val(security_ques,
                                                                                                     answer):
-                insert_data(name, uname, pass1, security_ques, answer)
+                insert_data(name, uname, email, pass1, security_ques, answer)
                 self.main_menu = Main_menu(uname)
                 self.main_menu.show()
                 self.close()
@@ -286,7 +298,7 @@ class Forgotpassword(QDialog):
                 security_question = mydatabase.Query_fetchone(
                     "SELECT security_question, security_answer, password FROM users WHERE username = %s",
                     (str(username),))
-                self.w = Forgotpassword_sec_check(security_question[0], security_question[1], security_question[2])
+                self.w = Forgotpassword_sec_check(security_question[0], security_question[1], security_question[2], username)
                 self.w.show()
                 self.close()
             else:
@@ -308,9 +320,10 @@ class Forgotpassword(QDialog):
 
 
 class Forgotpassword_sec_check(QDialog):
-    def __init__(self, s_q, s_a, password):
+    def __init__(self, s_q, s_a, password, username):
         super().__init__()
         loadUi(r"C:\Whack_A_Mole\ui_files\Forgotpassword.ui", self)
+        self.username1 = username
         self.security_question = s_q
         self.security_answer = s_a
         self.password = password
@@ -332,13 +345,22 @@ class Forgotpassword_sec_check(QDialog):
 
     def getpassword(self):
         security_ans_cu = str(self.f_answer.text())
-        if security_ans_cu != "":
-            if security_ans_cu == self.security_answer:
-                self.w = Response_Pass(self.password)
-                self.w.show()
-                self.close()
+        email_id = str(self.f_email.text())
+        if security_ans_cu != "" email_id != "":
+            mydatabase = Database()
+            result = mydatabase.Query_fetchone("SELECT email FROM users WHERE username = %s",(str(self.username1),))
+            if security_ans_cu == self.security_answer and email_id == result[0]:
+                try:
+                    send_email(email_id)
+                    self.w = Response_Pass("Email sent to you successfully",200)
+                    self.w.show()
+                    self.close()
+                except:
+                    self.w = Response_Pass("An Error occured while sending email",404)
+                    self.w.show()
+                    self.close()
             else:
-                self.w = Wrong_Response()
+                self.w = Response_Pass("Wrong username and email id did not match")
                 self.w.show()
                 self.close()
         else:
@@ -352,16 +374,19 @@ class Forgotpassword_sec_check(QDialog):
 
 
 class Response_Pass(QDialog):
-    def __init__(self, password):
+    def __init__(self, text, status):
         super().__init__()
         loadUi(r"C:\Whack_A_Mole\ui_files\responsePass.ui", self)
         self.setFixedSize(500, 300)
         self.setWindowTitle("Response")
-        self.f_answer.setText(str(password))
-        self.f_ok.clicked.connect(self.gotologin)
         self.f_ok.setStyleSheet(
             "QPushButton{font: 15pt \"Arial Rounded MT Bold\";\npadding:5px;\nbackground-color:green;\ncolor:white;\nborder-radius:20px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
-
+        self.f_answer.setText(str(text))
+        if status == 200:
+            self.f_ok.clicked.connect(self.gotologin)
+        elif status == 400:
+            self.f_ok.clicked.connect(self.gotoforgotpassword)
+        
     def gotologin(self):
         self.log = Login()
         self.log.show()
@@ -369,26 +394,13 @@ class Response_Pass(QDialog):
         global id_
         for obj in gc.get_objects():
             if id(obj) == id_:
-                print(id(obj))
                 obj.close()
 
-
-class Wrong_Response(QDialog):
-    def __init__(self):
-        super().__init__()
-        loadUi(r"C:\Whack_A_Mole\ui_files\wrong_respose.ui", self)
-        self.setFixedSize(500, 300)
-        self.setWindowTitle("Response")
-        self.f_ok.clicked.connect(self.gotologin)
-        self.f_ok.setStyleSheet(
-            "QPushButton{font: 15pt \"Arial Rounded MT Bold\";\npadding:5px;\nbackground-color:green;\ncolor:white;\nborder-radius:20px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
-
-    def gotologin(self):
-        self.log = Forgotpassword()
-        self.log.show()
+    def gotoforgotpassword(self):
+        self.fp = Forgotpassword()
+        self.fp.show()
         self.close()
         global id_
         for obj in gc.get_objects():
             if id(obj) == id_:
-                print(id(obj))
                 obj.close()
