@@ -67,6 +67,19 @@ def name_val(name):
     else:
         return False
 
+def email_val(email):
+    ######################
+
+    
+    ######################
+    if True:
+        mydatabase = Database()
+        result = mydatabase.Query_fetchall("SELECT email FROM users WHERE email = %s", (str(email), ))
+        if result == []:
+            return True
+        return False
+    else:
+        return False
 
 def pass_val(pass1, pass2):
     print(pass1, pass2)
@@ -143,8 +156,8 @@ class Signup(QDialog):
         else:
             self.f_responseerror2.setText("")
 
-        if name != "" and uname != "" and pass1 != "" and pass2 != "" and security_ques != "" and answer != "":
-            if name_val(name) and uname_val(uname) and pass_val(pass1, pass2) and security_ques_val(security_ques,
+        if name != "" and uname != "" and email != "" and pass1 != "" and pass2 != "" and security_ques != "" and answer != "":
+            if name_val(name) and uname_val(uname) and email_val(email) and pass_val(pass1, pass2) and security_ques_val(security_ques,
                                                                                                     answer):
                 insert_data(name, uname, pass1, security_ques, answer)
                 self.main_menu = Main_menu(uname)
