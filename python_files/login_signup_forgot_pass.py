@@ -75,8 +75,8 @@ def email_val(email):
         mydatabase = Database()
         result = mydatabase.Query_fetchall("SELECT email FROM users WHERE email = %s", (str(email), ))
         if result == []:
-            return False
-        return True
+            return True
+        return False
     else:
         return False
 
@@ -116,8 +116,8 @@ def insert_data(name, uname, email,pass1, security_ques, answer):
     print("Inserting")
     mydatabase = Database()
     print(mydatabase.Query_insert(
-        "INSERT INTO users (username, name, email, password, security_question, security_answer) VALUES (%s, %s, %s, %s, %s)",
-        (uname, name, pass1, security_ques, answer)), "record inserted.")
+        "INSERT INTO users (username, name, email, password, security_question, security_answer) VALUES (%s, %s, %s, %s, %s, %s)",
+        (uname, name, email, pass1, security_ques, answer)), "record inserted.")
     print(mydatabase.Query_insert(
         "INSERT INTO levels_and_skins (username, e1, e2, e3, m1,m2,m3,h1,h2,h3,s1,s2,s3,s4,s5,s6,s7,s8,s9) VALUES (%s, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)",
         (uname,)), "record inserted.")
@@ -138,7 +138,7 @@ class Signup(QDialog):
     def create_acc(self):
         name = self.f_name.text()
         uname = self.f_uname.text()
-        email = self.F_email.text()
+        email = self.f_email.text()
         pass1 = self.f_pass1.text()
         pass2 = self.f_pass2.text()
         security_ques = self.f_security_ques.currentText()
@@ -350,7 +350,7 @@ class Forgotpassword_sec_check(QDialog):
             result = mydatabase.Query_fetchone("SELECT email FROM users WHERE username = %s",(str(self.username1),))
             if security_ans_cu == self.security_answer and email_id == result[0]:
                 try:
-                    send_email(email_id)
+                    self.send_email(email_id,self.username1)
                     self.w = Response_Pass("Email sent to you successfully",200)
                     self.w.show()
                     self.close()
@@ -367,6 +367,22 @@ class Forgotpassword_sec_check(QDialog):
             self.f_getpass.setEnabled(False)
             timer = Timer()
             timer.setTimeout(self.enableme, 0.2)
+    def send_email(email_id,username):
+        import smtplib
+        from email.message import EmailMessage
+        mydatabase=Database()
+        password=mydatabase.Query_fetchone("SELECT password FROM users WHERE username = %s",(str(username),))[0]
+        msg=EmailMessage()
+        msg ['Subject']='Password Reset at Whack A Mole'
+        msg['From']= 'Whack A Mole Team'
+        msg['To']= email_id
+        # msg.set_content("Hello, your password is 'omkar@123'.")
+        msg.set_content("Hello, your password is"+ password+".")
+
+        server=smtplib.SMTP_SSL('smtp.gmail.com',465)
+        server.login("gamewhackamole@gmail.com","whackamole@123")
+        server.send_message(msg)
+        server.quit()
 
     def enableme(self):
         self.f_getpass.setEnabled(True)
