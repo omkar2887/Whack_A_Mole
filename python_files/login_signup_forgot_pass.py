@@ -68,16 +68,15 @@ def name_val(name):
         return False
 
 def email_val(email):
-    ######################
+    import re
 
-
-    ######################
-    if True:
+    regex = '^[a-z0-9]+[\.]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
+    if re.search(regex, email):
         mydatabase = Database()
         result = mydatabase.Query_fetchall("SELECT email FROM users WHERE email = %s", (str(email), ))
         if result == []:
-            return True
-        return False
+            return False
+        return True
     else:
         return False
 
@@ -346,7 +345,7 @@ class Forgotpassword_sec_check(QDialog):
     def getpassword(self):
         security_ans_cu = str(self.f_answer.text())
         email_id = str(self.f_email.text())
-        if security_ans_cu != "" email_id != "":
+        if security_ans_cu != "" and email_id != "":
             mydatabase = Database()
             result = mydatabase.Query_fetchone("SELECT email FROM users WHERE username = %s",(str(self.username1),))
             if security_ans_cu == self.security_answer and email_id == result[0]:
