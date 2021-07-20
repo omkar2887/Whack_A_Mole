@@ -20,7 +20,7 @@
    <property name="geometry">
     <rect>
      <x>260</x>
-     <y>150</y>
+     <y>130</y>
      <width>150</width>
      <height>41</height>
     </rect>
@@ -51,7 +51,7 @@ border-radius:5px;</string>
    <property name="geometry">
     <rect>
      <x>430</x>
-     <y>150</y>
+     <y>130</y>
      <width>150</width>
      <height>41</height>
     </rect>
@@ -82,7 +82,7 @@ border-radius:5px;</string>
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>150</y>
+     <y>130</y>
      <width>160</width>
      <height>40</height>
     </rect>
@@ -102,7 +102,7 @@ color:white;</string>
    <property name="geometry">
     <rect>
      <x>600</x>
-     <y>150</y>
+     <y>130</y>
      <width>150</width>
      <height>41</height>
     </rect>
@@ -133,7 +133,7 @@ border-radius:5px;</string>
    <property name="geometry">
     <rect>
      <x>260</x>
-     <y>210</y>
+     <y>190</y>
      <width>150</width>
      <height>41</height>
     </rect>
@@ -164,7 +164,7 @@ border-radius:5px;</string>
    <property name="geometry">
     <rect>
      <x>430</x>
-     <y>210</y>
+     <y>190</y>
      <width>150</width>
      <height>41</height>
     </rect>
@@ -195,7 +195,7 @@ border-radius:5px;</string>
    <property name="geometry">
     <rect>
      <x>600</x>
-     <y>210</y>
+     <y>190</y>
      <width>150</width>
      <height>41</height>
     </rect>
@@ -226,7 +226,7 @@ border-radius:5px;</string>
    <property name="geometry">
     <rect>
      <x>260</x>
-     <y>270</y>
+     <y>250</y>
      <width>150</width>
      <height>41</height>
     </rect>
@@ -257,7 +257,7 @@ border-radius:5px;</string>
    <property name="geometry">
     <rect>
      <x>430</x>
-     <y>270</y>
+     <y>250</y>
      <width>150</width>
      <height>41</height>
     </rect>
@@ -288,7 +288,7 @@ border-radius:5px;</string>
    <property name="geometry">
     <rect>
      <x>600</x>
-     <y>270</y>
+     <y>250</y>
      <width>150</width>
      <height>41</height>
     </rect>
@@ -319,7 +319,7 @@ border-radius:5px;</string>
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>210</y>
+     <y>190</y>
      <width>191</width>
      <height>40</height>
     </rect>
@@ -339,7 +339,7 @@ color:white;</string>
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>270</y>
+     <y>250</y>
      <width>161</width>
      <height>40</height>
     </rect>
@@ -360,7 +360,7 @@ color:white;
    <property name="geometry">
     <rect>
      <x>310</x>
-     <y>70</y>
+     <y>60</y>
      <width>180</width>
      <height>40</height>
     </rect>
@@ -412,7 +412,7 @@ color:black;</string>
    <property name="geometry">
     <rect>
      <x>310</x>
-     <y>350</y>
+     <y>320</y>
      <width>180</width>
      <height>40</height>
     </rect>
@@ -432,7 +432,7 @@ color:white;</string>
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>420</y>
+     <y>380</y>
      <width>71</width>
      <height>51</height>
     </rect>
@@ -462,7 +462,7 @@ border-radius:5px;</string>
    <property name="geometry">
     <rect>
      <x>370</x>
-     <y>420</y>
+     <y>380</y>
      <width>71</width>
      <height>51</height>
     </rect>
@@ -492,7 +492,7 @@ border-radius:5px;</string>
    <property name="geometry">
     <rect>
      <x>580</x>
-     <y>420</y>
+     <y>380</y>
      <width>71</width>
      <height>51</height>
     </rect>
@@ -522,7 +522,7 @@ border-radius:5px;</string>
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>470</y>
+     <y>430</y>
      <width>100</width>
      <height>40</height>
     </rect>
@@ -542,7 +542,7 @@ color:white;</string>
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>470</y>
+     <y>430</y>
      <width>160</width>
      <height>40</height>
     </rect>
@@ -562,7 +562,7 @@ color:white;</string>
    <property name="geometry">
     <rect>
      <x>530</x>
-     <y>470</y>
+     <y>430</y>
      <width>160</width>
      <height>40</height>
     </rect>
@@ -582,7 +582,7 @@ color:white;</string>
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>520</y>
+     <y>480</y>
      <width>71</width>
      <height>51</height>
     </rect>
@@ -612,7 +612,7 @@ border-radius:5px;</string>
    <property name="geometry">
     <rect>
      <x>370</x>
-     <y>520</y>
+     <y>480</y>
      <width>71</width>
      <height>51</height>
     </rect>
@@ -642,7 +642,7 @@ border-radius:5px;</string>
    <property name="geometry">
     <rect>
      <x>580</x>
-     <y>520</y>
+     <y>480</y>
      <width>71</width>
      <height>51</height>
     </rect>
@@ -672,7 +672,7 @@ border-radius:5px;</string>
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>620</y>
+     <y>580</y>
      <width>71</width>
      <height>51</height>
     </rect>
@@ -702,7 +702,7 @@ border-radius:5px;</string>
    <property name="geometry">
     <rect>
      <x>370</x>
-     <y>620</y>
+     <y>580</y>
      <width>71</width>
      <height>51</height>
     </rect>
@@ -732,7 +732,7 @@ border-radius:5px;</string>
    <property name="geometry">
     <rect>
      <x>580</x>
-     <y>620</y>
+     <y>580</y>
      <width>71</width>
      <height>51</height>
     </rect>
@@ -762,7 +762,7 @@ border-radius:5px;</string>
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>570</y>
+     <y>530</y>
      <width>160</width>
      <height>40</height>
     </rect>
@@ -782,7 +782,7 @@ color:white;</string>
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>570</y>
+     <y>530</y>
      <width>160</width>
      <height>40</height>
     </rect>
@@ -802,7 +802,7 @@ color:white;</string>
    <property name="geometry">
     <rect>
      <x>530</x>
-     <y>570</y>
+     <y>530</y>
      <width>160</width>
      <height>40</height>
     </rect>
@@ -822,7 +822,7 @@ color:white;</string>
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>670</y>
+     <y>630</y>
      <width>160</width>
      <height>40</height>
     </rect>
@@ -842,7 +842,7 @@ color:white;</string>
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>670</y>
+     <y>630</y>
      <width>160</width>
      <height>40</height>
     </rect>
@@ -862,7 +862,7 @@ color:white;</string>
    <property name="geometry">
     <rect>
      <x>530</x>
-     <y>670</y>
+     <y>630</y>
      <width>160</width>
      <height>40</height>
     </rect>
@@ -900,6 +900,26 @@ color:white;
    </property>
    <property name="text">
     <string>Play</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="f_play_game_err">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>680</y>
+     <width>500</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 12pt &quot;Georgia&quot;;
+color:red;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

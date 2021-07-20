@@ -4,7 +4,6 @@ from PyQt5.uic import loadUi
 from PyQt5.QtCore import *
 from PyQt5 import QtGui, QtWidgets
 from PyQt5.QtCore import Qt
-# from level_and_skin import *
 from DBhelper import Database
 
 
@@ -85,11 +84,9 @@ class Leaderboard(QDialog):
         self.tableWidget.setColumnWidth(1, 100)
         self.tableWidget.setColumnWidth(2, 200)
         self.tableWidget.setColumnWidth(3, 200)
-        #######DATABASE#######
         mydatabase = Database()
         self.result = mydatabase.Query_fetchall_leaderboard("SELECT * FROM highscores ORDER BY score DESC")
         self.load_database()
-        #######DATABASE#######
         self.f_back.clicked.connect(self.goto_mainmenu)
 
     def load_database(self):

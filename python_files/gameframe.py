@@ -4,7 +4,6 @@ from PyQt5.QtCore import *
 from PyQt5.uic import loadUi
 from PyQt5 import QtGui
 
-# Spacebar problem
 score = 0
 t = 15
 countdown_time = 3
@@ -155,14 +154,8 @@ class GameFrame(QDialog):
     def Result(self):
         from result import Result
         self.countdown_timer.stop()
-        # self.cursor_timer.stop()
         self.timer.stop()
         self.location_timer.stop()
         self.r_window = Result(self.username1)
         self.r_window.show()
         self.close()
-
-# app = QApplication(sys.argv)
-# window = GameFrame()
-# window.show()
-# sys.exit(app.exec_())
