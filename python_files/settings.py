@@ -63,6 +63,10 @@ class Settings_frame(QDialog):
             "QPushButton{font: 16pt \"Arial Rounded MT Bold\";\npadding:15px;\nbackground-color:green;\ncolor:white;\nborder-radius:20px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
         self.f_resetacc.clicked.connect(self.reset_account)
 
+        self.f_logout.setStyleSheet(
+            "QPushButton{font: 16pt \"Arial Rounded MT Bold\";\npadding:15px;\nbackground-color:green;\ncolor:white;\nborder-radius:20px;}\nQPushButton:hover{\nborder:1px solid white;\nbackground-color:#03C227;}")
+        self.f_logout.clicked.connect(self.gotologin)
+
         self.f_back.clicked.connect(self.gotomainmenu)
 
     def gotoProfile(self):
@@ -81,7 +85,12 @@ class Settings_frame(QDialog):
         self.reset_window = Reset_Account(self.username1)
         self.reset_window.show()
         self.close()
-
+    
+    def gotologin(self):
+        from login_signup_forgot_pass import Login
+        self.logout = Login()
+        self.logout.show()
+        self.close()
 
 class Reset_Account(QDialog):
     def __init__(self, username):

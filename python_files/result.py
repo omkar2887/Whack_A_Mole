@@ -6,16 +6,6 @@ from PyQt5 import QtGui
 from PyQt5.QtCore import Qt
 from DBhelper import Database
 
-
-# make class variables (add all variables)
-
-# from gameframe import score,t,countdown_time,start ,mouseflag,cursorflag
-# score = 0
-# t = 15
-# countdown_time = 3
-# start = False
-# mouseflag=cursorflag=0
-
 class Result(QDialog):
     def __init__(self, username):
         super().__init__()
@@ -60,10 +50,6 @@ class Result(QDialog):
         self.f_tot_score.setText(str(addon))
         self.now_score = int(self.now_score) + self.total_score
         self.level_and_skin_update()
-        # if score >= 10:
-        #     self.result_label.setText("Well done")
-        # else:
-        #     self.result_label.setText("Can do better")
 
     def goto_playagain(self):
         from gameframe import GameFrame

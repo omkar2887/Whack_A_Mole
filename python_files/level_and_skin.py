@@ -7,8 +7,8 @@ from PyQt5.QtCore import Qt
 from gameframe import *
 from DBhelper import Database
 
-level = str()
-skin = str()
+level = "PRE"
+skin = "PRE"
 Totalscore = 0
 
 
@@ -122,66 +122,74 @@ class level_skin(QDialog):
         level = 'e1'
 
     def e_lev_2(self):
+        global level
         if self.e_level2.isChecked() and self.result[1] == 1:
-            global level
             level = 'e2'
         elif self.e_level2.isChecked() and self.result[1] == 0:
+            level = "ERROR"
             self.l_pop = level_popup()
             self.l_pop.show()
 
     def e_lev_3(self):
+        global level
         if self.e_level3.isChecked() and self.result[2] == 1:
-            global level
             level = 'e3'
         elif self.e_level3.isChecked() and self.result[2] == 0:
+            level = "ERROR"
             self.l_pop = level_popup()
             self.l_pop.show()
 
     def m_lev_1(self):
+        global level
         if self.m_level1.isChecked() and self.result[3] == 1:
-            global level
             level = 'm1'
         elif self.m_level1.isChecked() and self.result[3] == 0:
+            level = "ERROR"
             self.l_pop = level_popup()
             self.l_pop.show()
 
     def m_lev_2(self):
+        global level
         if self.m_level2.isChecked() and self.result[4] == 1:
-            global level
             level = 'm2'
         elif self.m_level2.isChecked() and self.result[4] == 0:
+            level = "ERROR"
             self.l_pop = level_popup()
             self.l_pop.show()
 
     def m_lev_3(self):
+        global level
         if self.m_level3.isChecked() and self.result[5] == 1:
-            global level
             level = 'm3'
         elif self.m_level3.isChecked() and self.result[5] == 0:
+            level = "ERROR"
             self.l_pop = level_popup()
             self.l_pop.show()
 
     def h_lev_1(self):
+        global level
         if self.h_level1.isChecked() and self.result[6] == 1:
-            global level
             level = 'h1'
         elif self.h_level1.isChecked() and self.result[6] == 0:
+            level = "ERROR"
             self.l_pop = level_popup()
             self.l_pop.show()
 
     def h_lev_2(self):
+        global level
         if self.h_level2.isChecked() and self.result[7] == 1:
-            global level
             level = 'h2'
         elif self.h_level2.isChecked() and self.result[7] == 0:
+            level = "ERROR"
             self.l_pop = level_popup()
             self.l_pop.show()
 
     def h_lev_3(self):
+        global level
         if self.h_level3.isChecked() and self.result[8] == 1:
-            global level
             level = 'h3'
         elif self.h_level3.isChecked() and self.result[8] == 0:
+            level = "ERROR"
             self.l_pop = level_popup()
             self.l_pop.show()
 
@@ -190,84 +198,96 @@ class level_skin(QDialog):
         skin = '1'
 
     def s_2(self):
+        global skin
         if self.skin_2.isChecked() and self.result[10] == 1:
-            global skin
             skin = '2'
         elif self.skin_2.isChecked() and self.result[10] == 0:
+            skin = "ERROR"
             self.l_pop = skin_popup()
             self.l_pop.show()
 
     def s_3(self):
+        global skin
         if self.skin_3.isChecked() and self.result[11] == 1:
-            global skin
             skin = '3'
         elif self.skin_3.isChecked() and self.result[11] == 0:
+            skin = "ERROR"
             self.l_pop = skin_popup()
             self.l_pop.show()
 
     def s_4(self):
+        global skin
         if self.skin_4.isChecked() and self.result[12] == 1:
-            global skin
             skin = '4'
         elif self.skin_4.isChecked() and self.result[12] == 0:
+            skin = "ERROR"
             self.l_pop = skin_popup()
             self.l_pop.show()
 
     def s_5(self):
+        global skin
         if self.skin_5.isChecked() and self.result[13] == 1:
-            global skin
             skin = '5'
         elif self.skin_5.isChecked() and self.result[13] == 0:
+            skin = "ERROR"
             self.l_pop = skin_popup()
             self.l_pop.show()
 
     def s_6(self):
+        global skin
         if self.skin_6.isChecked() and self.result[14] == 1:
-            global skin
             skin = '6'
         elif self.skin_6.isChecked() and self.result[14] == 0:
+            skin = "ERROR"
             self.l_pop = skin_popup()
             self.l_pop.show()
 
     def s_7(self):
+        global skin
         if self.skin_7.isChecked() and self.result[15] == 1:
-            global skin
             skin = '7'
         elif self.skin_7.isChecked() and self.result[15] == 0:
+            skin = "ERROR"
             self.l_pop = skin_popup()
             self.l_pop.show()
 
     def s_8(self):
+        global skin
         if self.skin_8.isChecked() and self.result[16] == 1:
-            global skin
             skin = '8'
         elif self.skin_8.isChecked() and self.result[16] == 0:
+            skin = "ERROR"
             self.l_pop = skin_popup()
             self.l_pop.show()
 
     def s_9(self):
+        global skin
         if self.skin_9.isChecked() and self.result[17] == 1:
-            global skin
             skin = '9'
         elif self.skin_9.isChecked() and self.result[17] == 0:
+            skin = "ERROR"
             self.l_pop = skin_popup()
             self.l_pop.show()
 
-    # def level_locked(self):
-    #     if self.e_level2.isChecked():
-    #         self.l_pop = level_popup()
-    #         self.l_pop.show()
-
-    # def skin_locked(self):
-    #     if self.skin_2.isChecked():
-    #         self.s_pop = skin_popup()
-    #         self.s_pop.show()
-
     def playgame(self):
-        # if self.e_level1.isChecked() and self.skin_1.isChecked():
-        self.z = GameFrame(self.username1)
-        self.z.show()
-        self.close()
+        global skin
+        global level
+        if (skin not in ["ERROR", "PRE"]) and (level not in ["ERROR", "PRE"]):
+            self.z = GameFrame(self.username1)
+            self.z.show()
+            self.close()
+        elif (skin == "ERROR") and (level == "ERROR"):
+            self.f_play_game_err.setText(f"Level and Skin is Locked")
+        elif skin == "ERROR":
+            self.f_play_game_err.setText(f"Skin is Locked")
+        elif level == "ERROR":
+            self.f_play_game_err.setText(f"Level is Locked")
+        elif (skin == "PRE") and (level == "PRE"):
+            self.f_play_game_err.setText(f"Please Select Level and Skin")
+        elif skin == "PRE":
+            self.f_play_game_err.setText(f"Please Select Skin")
+        else:
+            self.f_play_game_err.setText(f"Please Select Level")
 
     def goto_main_menu(self):
         from Main_menu import Main_menu
@@ -302,46 +322,3 @@ class skin_popup(QDialog):
 
     def OK(self):
         self.close()
-
-# self.e_level1.toggled.connect(self.level1)
-# self.skin_2.toggled.connect(self.skin_locked)
-# if Totalscore>=50:
-#     icon = QtGui.QIcon()
-#     icon.addPixmap(QtGui.QPixmap("../Whack A Mole/Images and icon/unlocked.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-#     self.e_level2.setIcon(icon)
-#     self.s2_label.setText("Unlocked")
-# if Totalscore>=100:
-#     icon = QtGui.QIcon()
-#     icon.addPixmap(QtGui.QPixmap("../Whack A Mole/Images and icon/unlocked.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-#     self.e_level3.setIcon(icon)
-#     self.s3_label.setText("Unlocked")
-# if Totalscore>=150:
-#     icon = QtGui.QIcon()
-#     icon.addPixmap(QtGui.QPixmap("../Whack A Mole/Images and icon/unlocked.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-#     self.m_level1.setIcon(icon)
-#     self.s4_label.setText("Unlocked")
-# if Totalscore>=200:
-#     icon = QtGui.QIcon()
-#     icon.addPixmap(QtGui.QPixmap("../Whack A Mole/Images and icon/unlocked.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-#     self.m_level2.setIcon(icon)
-#     self.s5_label.setText("Unlocked")
-# if Totalscore>=250:
-#     icon = QtGui.QIcon()
-#     icon.addPixmap(QtGui.QPixmap("../Whack A Mole/Images and icon/unlocked.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-#     self.m_level3.setIcon(icon)
-#     self.s6_label.setText("Unlocked")
-# if Totalscore>=300:
-#     icon = QtGui.QIcon()
-#     icon.addPixmap(QtGui.QPixmap("../Whack A Mole/Images and icon/unlocked.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-#     self.h_level1.setIcon(icon)
-#     self.s7_label.setText("Unlocked")
-# if Totalscore>=350:
-#     icon = QtGui.QIcon()
-#     icon.addPixmap(QtGui.QPixmap("../Whack A Mole/Images and icon/unlocked.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-#     self.h_level2.setIcon(icon)
-#     self.s8_label.setText("Unlocked")
-# if Totalscore>=400:
-#     icon = QtGui.QIcon()
-#     icon.addPixmap(QtGui.QPixmap("../Whack A Mole/Images and icon/unlocked.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-#     self.h_level3.setIcon(icon)
-#     self.s9_label.setText("Unlocked")
