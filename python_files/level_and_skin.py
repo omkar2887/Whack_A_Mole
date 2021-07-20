@@ -110,7 +110,7 @@ class level_skin(QDialog):
                            QtGui.QIcon.Off)
             self.h_level2.setIcon(icon)
             self.s8_label.setText("Unlocked")
-        if self.result[8] == 1 and self.result[167] == 1:
+        if self.result[8] == 1 and self.result[17] == 1:
             icon = QtGui.QIcon()
             icon.addPixmap(QtGui.QPixmap("../Whack_A_Mole/Images and icon/unlocked.png"), QtGui.QIcon.Normal,
                            QtGui.QIcon.Off)
@@ -194,7 +194,7 @@ class level_skin(QDialog):
             global skin
             skin = '2'
         elif self.skin_2.isChecked() and self.result[10] == 0:
-            self.l_pop = level_popup()
+            self.l_pop = skin_popup()
             self.l_pop.show()
 
     def s_3(self):
@@ -202,7 +202,7 @@ class level_skin(QDialog):
             global skin
             skin = '3'
         elif self.skin_3.isChecked() and self.result[11] == 0:
-            self.l_pop = level_popup()
+            self.l_pop = skin_popup()
             self.l_pop.show()
 
     def s_4(self):
@@ -210,7 +210,7 @@ class level_skin(QDialog):
             global skin
             skin = '4'
         elif self.skin_4.isChecked() and self.result[12] == 0:
-            self.l_pop = level_popup()
+            self.l_pop = skin_popup()
             self.l_pop.show()
 
     def s_5(self):
@@ -218,7 +218,7 @@ class level_skin(QDialog):
             global skin
             skin = '5'
         elif self.skin_5.isChecked() and self.result[13] == 0:
-            self.l_pop = level_popup()
+            self.l_pop = skin_popup()
             self.l_pop.show()
 
     def s_6(self):
@@ -226,7 +226,7 @@ class level_skin(QDialog):
             global skin
             skin = '6'
         elif self.skin_6.isChecked() and self.result[14] == 0:
-            self.l_pop = level_popup()
+            self.l_pop = skin_popup()
             self.l_pop.show()
 
     def s_7(self):
@@ -234,7 +234,7 @@ class level_skin(QDialog):
             global skin
             skin = '7'
         elif self.skin_7.isChecked() and self.result[15] == 0:
-            self.l_pop = level_popup()
+            self.l_pop = skin_popup()
             self.l_pop.show()
 
     def s_8(self):
@@ -242,7 +242,7 @@ class level_skin(QDialog):
             global skin
             skin = '8'
         elif self.skin_8.isChecked() and self.result[16] == 0:
-            self.l_pop = level_popup()
+            self.l_pop = skin_popup()
             self.l_pop.show()
 
     def s_9(self):
@@ -250,7 +250,7 @@ class level_skin(QDialog):
             global skin
             skin = '9'
         elif self.skin_9.isChecked() and self.result[17] == 0:
-            self.l_pop = level_popup()
+            self.l_pop = skin_popup()
             self.l_pop.show()
 
     # def level_locked(self):

@@ -357,7 +357,7 @@ font: 75 15pt &quot;Courier&quot;;</string>
      <x>160</x>
      <y>250</y>
      <width>500</width>
-     <height>28</height>
+     <height>27</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -545,7 +545,6 @@ color:red;</string>
   <zorder>f_create_account</zorder>
   <zorder>label_2</zorder>
   <zorder>f_goto_login</zorder>
-  <zorder>f_responseerror</zorder>
   <zorder>f_responseerror1</zorder>
   <zorder>f_responseerror2</zorder>
   <zorder>f_responseerror2_2</zorder>
@@ -553,6 +552,7 @@ color:red;</string>
   <zorder>label_Username_2</zorder>
   <zorder>f_email</zorder>
   <zorder>f_responseerror_2</zorder>
+  <zorder>f_responseerror</zorder>
  </widget>
  <resources/>
  <connections/>
