@@ -118,8 +118,8 @@ def insert_data(name, uname, email, pass1, security_ques, answer):
     print("Inserting")
     mydatabase = Database()
     print(mydatabase.Query_insert(
-        "INSERT INTO users (username, name, email, password, security_question, security_answer) VALUES (%s, %s, %s, %s, %s, %s)",
-        (uname, name, email, pass1, security_ques, answer)), "record inserted.")
+        "INSERT INTO users (username, name, email, password, security_question, security_answer, total_score, highscore) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
+        (uname, name, email, pass1, security_ques, answer, '0', '0')), "record inserted.")
     print(mydatabase.Query_insert(
         "INSERT INTO levels_and_skins (username, e1, e2, e3, m1,m2,m3,h1,h2,h3,s1,s2,s3,s4,s5,s6,s7,s8,s9) VALUES (%s, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)",
         (uname,)), "record inserted.")

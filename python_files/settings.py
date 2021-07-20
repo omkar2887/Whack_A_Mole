@@ -102,6 +102,7 @@ class Reset_Account(QDialog):
         mydatabase = Database()
         mydatabase.Query_update("UPDATE levels_and_skins SET e2=0,e3=0,m1=0,m2=0,m3=0,h1=0,h2=0,h3=0,s2=0,s3=0,s4=0,s5=0,s6=0,s7=0,s8=0,s9=0 WHERE username = %s", (str(self.username1),))
         mydatabase.Query_update("DELETE FROM highscores WHERE username = %s", (str(self.username1),))
+        mydatabase.Query_update("UPDATE users SET total_score = '0', highscore = '0' WHERE username = %s", (str(self.username1),))
         self.closepopup()
     
     def closepopup(self):
