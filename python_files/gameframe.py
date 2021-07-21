@@ -5,7 +5,7 @@ from PyQt5.uic import loadUi
 from PyQt5 import QtGui
 
 score = 0
-t = 15
+t = 30
 countdown_time = 3
 start = False
 mouseflag = cursorflag = 0
