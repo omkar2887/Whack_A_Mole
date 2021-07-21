@@ -26,20 +26,20 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 25pt &quot;Georgia&quot;;
+    <string notr="true">font: 23pt &quot;Georgia&quot;;
 color:white;</string>
    </property>
    <property name="text">
     <string>Your Score :</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="f_score">
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>460</x>
      <y>90</y>
      <width>200</width>
      <height>60</height>
@@ -101,7 +101,7 @@ color:white;
   <widget class="QPushButton" name="f_quit">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>310</x>
      <y>560</y>
      <width>175</width>
      <height>60</height>
@@ -143,27 +143,27 @@ color:white;
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>140</x>
      <y>170</y>
      <width>300</width>
      <height>60</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 25pt &quot;Georgia&quot;;
+    <string notr="true">font: 23pt &quot;Georgia&quot;;
 color:white;</string>
    </property>
    <property name="text">
     <string>Your Highscore:</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="f_highscore">
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>460</x>
      <y>170</y>
      <width>200</width>
      <height>60</height>
@@ -183,27 +183,27 @@ color:white;</string>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>140</x>
      <y>250</y>
      <width>300</width>
      <height>60</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 25pt &quot;Georgia&quot;;
+    <string notr="true">font: 23pt &quot;Georgia&quot;;
 color:white;</string>
    </property>
    <property name="text">
     <string>Your Total Score:</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="f_tot_score">
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>460</x>
      <y>250</y>
      <width>200</width>
      <height>60</height>

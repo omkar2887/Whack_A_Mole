@@ -17,6 +17,9 @@ class level_skin(QDialog):
         super().__init__()
         loadUi(r"C:\Whack_A_Mole\ui_files\level_and_skin2.ui", self)
         self.username1 = str(username)
+        global level,skin
+        level = "PRE"
+        skin = "PRE"
         mydb = Database()
         result = mydb.Query_fetchone("select * from levels_and_skins where username=%s;", (str(self.username1),))
         self.result = list(result[1:])
