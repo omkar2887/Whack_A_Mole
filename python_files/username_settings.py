@@ -86,7 +86,7 @@ class chusername_frame(QDialog):
                 else:
                     print("Enter valid data")
             else:
-                self.f_response.setText("Current and new password should not be same")
+                self.f_response.setText("Current and new username should not be same")
         else:
             if current_username == "" and new_username == "":
                 self.f_response.setText("Please fill all the credentials")
