@@ -105,9 +105,9 @@ class chpassword_frame(QDialog):
             if current_password == "" and new_password == "":
                 self.f_response.setText("Please fill all the credentials")
             elif current_password == "":
-                self.f_response.setText("Please enter Current username")
+                self.f_response.setText("Please enter Current password")
             elif new_password == "":
-                self.f_response.setText("Please enter New username")
+                self.f_response.setText("Please enter New password")
             elif current_password != str(result[0]):
                 self.f_response.setText("Current password is wrong")
             print("text not filled")
