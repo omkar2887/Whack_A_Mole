@@ -157,12 +157,12 @@ class Signup(QDialog):
 
         if email == "":
             self.f_responseerror_2.setText("")
+        elif email_val(email):
+            self.f_responseerror_2.setStyleSheet("color:green;\nfont: 10pt 'Meiryo UI';")
+            self.f_responseerror_2.setText("Email available")
         elif not email_val(uname):
             self.f_responseerror_2.setStyleSheet("color:red;\nfont: 10pt 'Meiryo UI';")
             self.f_responseerror_2.setText("Email unavailable")
-        else:
-            self.f_responseerror_2.setStyleSheet("color:green;\nfont: 10pt 'Meiryo UI';")
-            self.f_responseerror_2.setText("Email available")
 
         if pass_val(pass1, pass2) == "100":
             self.f_responseerror2.setText("Both the passwords does not match")
