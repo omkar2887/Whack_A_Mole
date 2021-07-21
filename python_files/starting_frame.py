@@ -1,9 +1,11 @@
 """
 
 ##########  Whac A Mole Game  ##########
+# Tools used Python (for back-end), PyQt5 (for front-end), QT Designer (GUI designer), MySQL(for database)
+# Packages and modules :- PyQt5, mysql.connector, random, sys, gc.
 # 13 Python Files
 # 20 .ui files
-# 1707 Lines of code.
+# 1707 Lines of code
 # 21 Classes with total 86 methods
 # 12 Functions
 ########################################
