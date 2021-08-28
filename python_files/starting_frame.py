@@ -14,8 +14,8 @@
 Students from Vishwakarma Institute of Technology [ DESH ]
 1] M 40 Omkar Mudkanna 
 2] M 41 Omkar Jahagirdar 
-3] M 42 Onkar Pardeshi [ Assistant Group Leader ]
-4] M 43 Abhishek Otari [ Group Leader ]
+3] M 42 Onkar Pardeshi 
+4] M 43 Abhishek Otari 
 5] M 44 Sakshi Ozarde 
 6] M 45 Aditya Pachore 
 
